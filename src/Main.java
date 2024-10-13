@@ -1,15 +1,81 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import br.com.dominio.Bootcamp;
+import br.com.dominio.Curso;
+import br.com.dominio.Dev;
+import br.com.dominio.Mentoria;
+
+import java.time.LocalDate;
+
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        Curso curso1 = new Curso();
+
+        curso1.setTitulo("Curso Java");
+        curso1.setDescricao("Descricao curso java");
+        curso1.setCargaHoraria(8);
+
+        Curso curso2 = new Curso();
+
+        curso2.setTitulo("Curso Python");
+        curso2.setDescricao("Descricao curso python");
+        curso2.setCargaHoraria(5);
+
+
+
+        Mentoria mentoria1 = new Mentoria();
+        Mentoria mentoria2 = new Mentoria();
+
+        mentoria1.setTitulo("Mentoria Java");
+        mentoria1.setDescricao("Descricao mentoria java");
+        mentoria1.setData(LocalDate.now());
+
+        mentoria2.setTitulo("Mentoria Python");
+        mentoria2.setDescricao("Descricao mentoria Python");
+        mentoria2.setData(LocalDate.now());
+
+
+//        System.out.println(curso1);
+//        System.out.println(curso2);
+//
+//        System.out.println(mentoria1);
+//        System.out.println(mentoria2);
+
+        Bootcamp bootcamp = new Bootcamp();
+
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descricão Bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria1);
+
+
+        Dev devMatheus = new Dev();
+
+        devMatheus.setNome("Matheus");
+        devMatheus.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudo Inscrito: " + devMatheus.getConteudosInscritos());
+        devMatheus.progredir();
+        System.out.println("Conteudo Inscrito: " + devMatheus.getConteudosInscritos());
+        System.out.println("Conteudo Concluído: " + devMatheus.getConteudosConcluidos());
+
+        System.out.println("Xp: " + devMatheus.calcularTotalXp());
+
+        System.out.println("-----------");
+
+        Dev devJacob = new Dev();
+
+        devJacob.setNome("Jacob");
+        devJacob.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudo Inscrito: " + devJacob.getConteudosInscritos());
+        devJacob.progredir();
+        System.out.println("Conteudo Inscrito: " + devJacob.getConteudosInscritos());
+        devJacob.progredir();
+        System.out.println("Conteudo Concluído: " + devJacob.getConteudosConcluidos());
+
+        System.out.println("Xp: " + devJacob.calcularTotalXp());
+
+
+
     }
 }
